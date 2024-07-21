@@ -11,7 +11,7 @@ public class ImmutableMyDate {
         this.month = month;
         this.day = day;
     }
-
+    // 불변객체 안의 변경메서드에서 새로운 객체를 RETURN하는 메서드는 보통 관례상 with~로 명칭을 짓는다.
     public ImmutableMyDate withYear(int newYear) {
         return new ImmutableMyDate(newYear, month, day);
     }
