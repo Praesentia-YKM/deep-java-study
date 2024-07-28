@@ -10,6 +10,7 @@ public class NetworkClientV2 {
         this.address = address;
     }
 
+    // 반환타입도 필요없어짐 (예외를 던져버리니까 리턴값을 가지고 예외여부를 판단할 필요없음)
     public void connect() throws NetworkClientExceptionV2 {
         if (connectError) {
             throw new NetworkClientExceptionV2("connectError", address + " 서버 연결 실패");
