@@ -4,6 +4,10 @@ package exception.basic.unchecked;
  * UnChecked 예외는
  * 예외를 잡거나, 던지지 않아도 된다.
  * 예외를 잡지 않으면 자동으로 밖으로 던진다.
+ *
+ * 언체크예외는 throws 를 생략할 수 있다.
+ * 장점 : 신경쓰고싶지 않은 언체크 예외를 무시할 수 있다.
+ * 단점 ; 개발자가 실수로 예외를 누락할 수 있다.
  */
 public class Service {
 
