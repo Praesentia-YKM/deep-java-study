@@ -3,6 +3,11 @@ package exception.ex4;
 import exception.ex4.exception.ConnectExceptionV4;
 import exception.ex4.exception.SendExceptionV4;
 
+/**
+ * 언체크 예외라서 메서드에 throws 를 다 지워도 됨.
+ * 언체크 예외 즉, 개발자가 어떻게 조치할 수 없는 예외는 생각하지 않는게 더 좋은 방법일 수 있다.
+ * 따라서 catch하지 않고 자동으로 던져지도록 처리한다.
+ */
 public class NetworkClientV4 {
 
     private final String address;
