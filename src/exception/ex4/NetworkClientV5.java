@@ -3,6 +3,13 @@ package exception.ex4;
 import exception.ex4.exception.ConnectExceptionV4;
 import exception.ex4.exception.SendExceptionV4;
 
+/**
+ * try resource 를 사용하기 위해서 AutoCloseable을 상속 받는다.
+ * 이 클래스는 무조건 try문이 끝날때 close가 자동으로 실행되어(예외가 발생해도 무조건 먼저 finally실행)
+ * 자원을 반환한다. -> finally하지 않아도됨
+ * (따라서 자원을 무조건 더 빨리 해제한다.)
+ * 기존 try문을 try(반드시 반환할 finally 로직)
+ */
 public class NetworkClientV5 implements AutoCloseable {
 
     private final String address;
