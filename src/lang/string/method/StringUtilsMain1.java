@@ -13,10 +13,10 @@ public class StringUtilsMain1 {
         System.out.println("숫자의 문자열 값: " + numString);
         String boolString = String.valueOf(bool);
         System.out.println("불리언의 문자열 값: " + boolString);
-        String objString = String.valueOf(obj);
+        String objString = String.valueOf(obj); // toString() 객체 정보 반환함
         System.out.println("객체의 문자열 값: " + objString);
 
-        //문자 + x -> 문자
+        //문자 + anything -> 문자
         String numString2 = "" + num;
         System.out.println("빈문자열 + num: " + numString2);
 

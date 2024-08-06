@@ -17,7 +17,7 @@ public class StringUtilsMain2 {
         // printf
         System.out.printf("숫자: %.2f\n", 10.1234);
 
-        // matches 메서드
+        // matches 메서드  '|'는 정규식에서 or을 의미 즉, java! 이거나 World 라면?
         String regex = "Hello, (Java!|World)";
         System.out.println("'str'이 패턴과 일치하는가? " + str.matches(regex));
     }
