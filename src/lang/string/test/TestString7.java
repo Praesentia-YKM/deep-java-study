@@ -6,5 +6,6 @@ public class TestString7 {
         String original = "    Hello Java   ";
         String trimmed = original.trim();
         System.out.println("trimmed = " + trimmed);
+        System.out.println("original = " + original);
     }
 }
