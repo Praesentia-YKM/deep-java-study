@@ -22,5 +22,10 @@ public class StringBuilderMain1_1 {
         //StringBuilder -> String
         String string = sb.toString();
         System.out.println("string = " + string);
+        // StringBuilder로 가변적으로 로직을 실행하고 마지막에 불변인 String으로 toString처리해서
+        // sideEffect를 조심하여 관리할 수 있따.
+
+        System.out.println(string + "A");
+        System.out.println(string);
     }
 }
