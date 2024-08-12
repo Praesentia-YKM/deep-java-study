@@ -1,5 +1,6 @@
 package lang.wrapper;
-
+// 기본형을 감싸서 가공한 클래스 = 래퍼클래스
+// 비교가 필요해? 그럼 내가 가지고 있는 compareTo를 써~
 public class MyIntegerMethodMain1 {
 
     public static void main(String[] args) {

@@ -1,5 +1,7 @@
 package lang.wrapper;
 
+// 기본형은 항상 값을 가져야한다. 하지만 때로는 데이터가 "없음" 이라는 값을
+// 보여주고 싶을 때도 있을 수 있다.
 public class MyIntegerNullMain0 {
 
     public static void main(String[] args) {
@@ -16,6 +18,6 @@ public class MyIntegerNullMain0 {
                 return value;
             }
         }
-        return -1;
+        return -1; // 못 찾았어~라는것도 결국 숫자로 표현을 해줘야한다. 메서드의 반환이 int라서..
     }
 }

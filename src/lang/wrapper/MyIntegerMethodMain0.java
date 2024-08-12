@@ -1,5 +1,5 @@
 package lang.wrapper;
-
+// 기본타입은 로직을 다 짜줘야하고, 캡슐화를 시킬 수 없다.
 public class MyIntegerMethodMain0 {
 
     public static void main(String[] args) {
