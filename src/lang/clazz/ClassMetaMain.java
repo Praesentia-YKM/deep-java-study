@@ -6,6 +6,7 @@ import java.lang.reflect.Method;
 public class ClassMetaMain {
     public static void main(String[] args) throws Exception {
         //Class 조회
+        // 이렇게 클래스 정보를 가져오는 3가지 방법이 있다.
         Class clazz = String.class; // 1. 클래스에서 조회
         //Class clazz = new String().getClass(); // 2. 인스턴스에서 조회
         //Class clazz = Class.forName("java.lang.String"); // 3. 문자열로 조회
@@ -23,6 +24,7 @@ public class ClassMetaMain {
         }
 
         // 상위 클래스 정보 출력
+        // 상속이나 implements가 없으면 Objet클래스로 출력됨
         System.out.println("Superclass: " + clazz.getSuperclass().getName());
 
         // 인터페이스 정보 출력
