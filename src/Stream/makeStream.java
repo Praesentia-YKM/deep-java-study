@@ -42,20 +42,21 @@ public class makeStream {
 //        Stream<String> strStream = Stream.of(strArr);
         Stream<String> strStream = Stream.of(new String[] {"a","b","c","d"});
         Stream<String> strStream1 = Arrays.stream(strArr);
-        strStream.forEach(System.out::println);
+        strStream.forEach(System.out::print);
+        System.out.println();
 
         // 기본형 int 배열을 stream으로 변환(Integer Stream보다 속도 향상되고 다양한 메서드를 지원한다.)
         int [] intArr = {1,2,3,4,5};
         IntStream intStream1 = Arrays.stream(intArr);
-        intStream1.forEach(System.out::println);
-        System.out.println("count="+intStream1.count());
-        System.out.println("sum="+intStream1.sum());
-        System.out.println("average="+intStream1.average());
+        intStream1.forEach(System.out::print);
+        //System.out.println("count="+intStream1.count()); // stream최종연산은 한번 사용하면 다시 사용못하므로 주석
+        //System.out.println("sum="+intStream1.sum());
+        //System.out.println("average="+intStream1.average());
 
+        System.out.println();
         // 래퍼타입 Integer 배열을 stream으로 변환 (count함수만 제공)1
         Integer[] intArr2 = {1,2,3,4,5};
         Stream<Integer> intStream2 = Arrays.stream(intArr2);
-        intStream2.forEach(System.out::println);
-        System.out.println("count="+intStream2.count());
+        //System.out.println("count="+intStream2.count());
     }
 }
