@@ -1,6 +1,11 @@
 package Optaional;
 
+import java.util.Arrays;
+import java.util.List;
 import java.util.Optional;
+import java.util.function.Predicate;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class OptionalMethodEx {
     public static void main(String[] args) {
@@ -94,7 +99,27 @@ public class OptionalMethodEx {
 
         // 12. filter() - Optional의 값을 조건에 따라 걸러냄
         // 람다 = 메서드표현식 = 익명클래스 = 인터페이스의 구현 = 인터페이스의 메서드들은 언제나 public이므로 구현가능한것.
-        Optional<String> filteredOptional = nonNullOptional.filter(value -> value.startsWith("Hello"));
-        filteredOptional.ifPresent(value -> System.out.println("조건에 맞는 값: " + value));  // 출력: 조건에 맞는 값: Hello, World!
+        Optional<String> filteredOptional1 = nonNullOptional.filter(value -> value.startsWith("Hello"));
+        Optional<String> filteredOptional2 = nonNullOptional.filter("Hello"::startsWith); // 출력안됨
+        filteredOptional1.ifPresent(value -> System.out.println("조건에 맞는 값1: " + value));  // 출력: 조건에 맞는 값: Hello, World!
+        filteredOptional2.ifPresent(value -> System.out.println("조건에 맞는 값2: " + value));
+
+        List<String> words = Arrays.asList("apple", "banana", "cherry", "date");
+
+        // Stream과 compareTo를 사용하여 문자열 정렬
+        List<String> sortedWords = words.stream()
+                .sorted((s1, s2) -> s1.compareTo(s2))
+                .collect(Collectors.toList());
+
+        // 결과 출력
+        sortedWords.forEach(System.out::println);
+
+        // Stream과 startsWith를 사용하여 'a'로 시작하는 문자열 필터링
+        List<String> filteredWords = words.stream()
+                .filter(word -> word.startsWith("a"))
+                .collect(Collectors.toList());
+
+        // 결과 출력
+        filteredWords.forEach(System.out::println);
     }
 }

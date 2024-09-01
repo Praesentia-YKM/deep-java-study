@@ -5,7 +5,10 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 import java.util.function.Consumer;
+import java.util.function.IntConsumer;
+import java.util.function.IntPredicate;
 import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
 public class middleOperationEx {
@@ -28,5 +31,28 @@ public class middleOperationEx {
 
         stream.forEach(System.out::println); // 출력 순서는 보장되지 않음
 
+        IntStream intStream = IntStream.rangeClosed(1,10);
+        intStream.filter(i->i%2==0).filter(i->i%3!=0).forEach(System.out::print);
+
+        // -> 메서드 참조와 람다 안 쓰면 원래 이런 코드임
+        IntStream.of(1, 2, 3, 4, 5, 6)
+                .filter(new IntPredicate() {
+                    @Override
+                    public boolean test(int i) {
+                        return i % 2 == 0;
+                    }
+                })
+                .filter(new IntPredicate() {
+                    @Override
+                    public boolean test(int i) {
+                        return i % 3 != 0;
+                    }
+                })
+                .forEach(new IntConsumer() {
+                    @Override
+                    public void accept(int i) {
+                        System.out.print(i);
+                    }
+                });
     }
 }
