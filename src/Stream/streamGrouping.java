@@ -169,7 +169,8 @@ public class streamGrouping {
     }
 }
 
-
+// 자바에서 클래스 안에 정의된 enum은 해당 클래스의 멤버로 간주되며,
+// 외부에서 접근할 때는 클래스 이름을 통해 enum에 접근할 수 있습니다.
 class Student2 {
     String name;
     boolean isMale;   // 성별
