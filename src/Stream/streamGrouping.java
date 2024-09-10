@@ -35,10 +35,11 @@ public class streamGrouping {
         };
         // 성별로 분할 출력
         System.out.printf("1. 단순분할 (성별로 분할)%n");
+        // Stream.of(stuArr) 대신 Stream<Student2> stream = Arrays.stream(stuArr);도 가능, 둘다 자바8
         Map<Boolean, List<Student2>> stuBySex = Stream.of(stuArr)
-                .collect(partitioningBy(Student2::isMale));
+                .collect(partitioningBy(Student2::isMale)); // 바로 최종연산 : partitioningBy는 무조건 리턴이  Map<Boolean, List<T>
 
-        List<Student2> maleStudent = stuBySex.get(true);
+        List<Student2> maleStudent = stuBySex.get(true);    // get(boolean)을 통해서 이분할 파티션된 값 꺼냄
         List<Student2> femaleStudent = stuBySex.get(false);
 
         for (Student2 s : maleStudent)
@@ -48,7 +49,7 @@ public class streamGrouping {
 
         System.out.printf("%n2. 단순분할 + 통계 (성별 학생수)%n");
         Map<Boolean, Long> stuNumBySex = Stream.of(stuArr)
-                .collect(partitioningBy(Student2::isMale, counting()));
+                .collect(partitioningBy(Student2::isMale, counting())); // partitioningBy는 매개변수로 predicate와 downStream(어떠한작업) 두개를 받을 수도 있다.
 
         System.out.println("남학생 수: " + stuNumBySex.get(true));
         System.out.println("여학생 수: " + stuNumBySex.get(false));
@@ -64,7 +65,9 @@ public class streamGrouping {
         Map<Boolean, Student2> topScoreBySex2 = Stream.of(stuArr)
                 .collect(partitioningBy(Student2::isMale,
                         collectingAndThen(maxBy(comparingInt(Student2::getScore)), Optional::get)));
-
+        // 첫 번째 인자: maxBy(comparingInt(Student2::getScore))는 성별별로 최고 점수를 가진 학생을 찾는 Collector입니다.
+        // 두 번째 인자: Optional::get은 Optional<Student2>에서 실제 Student2 객체를 추출하는 함수입니다. Optional이 비어있지 않다고 가정하고 사용하는 방식입니다. 만약 비어있다면 예외가 발생합니다.
+        // Optional<Student2>로 감싸지는 이유는 maxBy() 메서드의 반환 타입이 Optional<T>이기 때문
 
         /**
          * groupingBy
@@ -81,6 +84,11 @@ public class streamGrouping {
         }
 
         System.out.printf("%n2. 단순그룹화 (성적별로 그룹화)%n");
+        /*
+            학생의 점수(s.getScore())가 200 이상이면 **Student2.Level.HIGH**로 그룹화합니다.
+            점수가 100 이상 200 미만이면 **Student2.Level.MID**로 그룹화합니다.
+            그 외 점수(100 미만)는 **Student2.Level.LOW**로 그룹화합니다.
+         */
         Map<Student2.Level, List<Student2>> stuByLevel = Stream.of(stuArr)
                 .collect(groupingBy(s -> {
                     if (s.getScore() >= 200) return Student2.Level.HIGH;
@@ -88,6 +96,10 @@ public class streamGrouping {
                     else return Student2.Level.LOW;
                 }));
 
+        // keySet()을 사용한 순회
+        // keySet()을 사용하면 키만 순회하고, 값을 얻으려면 get(key)를 호출해야 합니다
+        // entrySet()은 키와 값을 동시에 순회할 수 있음.
+        // 순회 iterator 명칭을 entry라고 하면 entry.getKey(); entry.getValue()로;
         TreeSet<Student2.Level> keySet = new TreeSet<>(stuByLevel.keySet());
 
         for (Student2.Level key : keySet) {
@@ -202,4 +214,17 @@ class Student2 {
 
     // groupingBy()에서 사용
     enum Level { HIGH, MID, LOW }   // 성적을 상, 중, 하로 분류
+
+    /*
+        컴파일러는 enum을 다음과 같이 해석함
+        1. 자기자신 객체를 참조하는 상수 필드 (자기자신 타입만 받을 수 있으며, static이라 클래스 로딩시 생성)
+        2. 싱글톤마냥 객체를 한번만 생성할 수 있도록 private 처리. public이면 외부에서 new로 새로운 enum객체를 재정의할 수 있어서.
+        public static final Level HIGH = new Level("HIGH", 0);
+        public static final Level MID = new Level("MID", 1);
+        public static final Level LOW = new Level("LOW", 2);
+
+        private Level(String name, int ordinal) {
+            super(name, ordinal);
+        }
+     */
 }
