@@ -1,5 +1,11 @@
 package generic.ex3;
 
+/**
+ * T타입을 사용함으로 인해 Object클래스의 메서드만 사용할 수 있다.
+ * 런타임이 되지 않는 이상 무슨 타입이 들어오는지 알 수 없기 대문에
+ *
+ * @param <T>
+ */
 public class AnimalHospitalV2<T> {
 
     private T animal;
