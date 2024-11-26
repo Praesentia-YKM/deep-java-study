@@ -1,5 +1,10 @@
 package generic.ex4;
 
+/**
+ * 제네릭 메서드!!
+ *
+ * 클래스에 <T> 붙이는건 제네릭 타입이고 이건 메서드 단위로 붙이는 제네릭 메서드다/
+ */
 public class GenericMethod {
 
     public static Object objMethod(Object obj) {

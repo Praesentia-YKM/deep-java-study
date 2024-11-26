@@ -2,6 +2,13 @@ package generic.ex4;
 
 public class MethodMain1 {
 
+    /**
+     * 제네릭 메서드에 타입을 클라이언트 딴에서 지정하는 방식은 2가지이다.
+     *
+     * 명시적 : 객체.<타입>메서드명(인자) 형식으로 지정
+     * 암시적 : 객체.메서드명(인자) -> 인자를 기준으로 타입 추론
+     * @param args
+     */
     public static void main(String[] args) {
         Integer i = 10;
         Object object = GenericMethod.objMethod(i);
