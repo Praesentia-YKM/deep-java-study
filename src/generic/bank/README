@@ -1,0 +1,13 @@
+##CNF 시스템 자바 스터디 2주차 첫번째 미션입니다.##
+
+여러 은행의 데이터를 발생 순서대로 관리하고, 필요한 데이터를 조회할 수 있는 시스템을 설계하려고 합니다. 
+각 은행은 서로 다른 형태의 데이터를 가지고 있으며, 데이터를 저장하는 방식과 처리 방식을 설계해야 합니다. BankDataManager라는 제네릭 클래스를 구현해봅시다. 
+
+이때 조건으로, BankDataManager는 ArrayList와 LinkedList 등등 어떤 리스트던 받을 수 있으며 아래 하위 기능을 구현해야 합니다.
+
+주요 메서드:
+void addData(T data): 데이터를 추가합니다.
+List<T> getAllData(): 모든 데이터를 반환합니다.
+T getLatestData(): 가장 최근에 추가된 데이터를 반환합니다. 
+addDataAt() : 중간 데이터 삽입 
+removeData : 삭제
