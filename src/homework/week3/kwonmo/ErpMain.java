@@ -4,9 +4,10 @@ import homework.week3.kwonmo.repository.BudgetDTO;
 import homework.week3.kwonmo.repository.ExpenditureDTO;
 import homework.week3.kwonmo.service.BudgetService;
 
+import java.util.InputMismatchException;
 import java.util.List;
+import java.util.Queue;
 import java.util.Scanner;
-
 public class ErpMain {
     private static final BudgetService service = new BudgetService();
     private static final Scanner scanner = new Scanner(System.in);
@@ -31,50 +32,67 @@ public class ErpMain {
                     case 5: System.out.println("시스템 종료."); return;
                     default: System.out.println("잘못된 입력입니다. 다시 시도해주세요.");
 
-//                    switch (choice) { // java 14
-//                        case 1 -> registerBudget();
-//                        case 2 -> displayBudgetSummary();
-//                        case 3 -> registerExpenditure();
-//                        case 4 -> displayExpenditureSummary();
-//                        case 5 -> {
-//                            System.out.println("시스템 종료.");
-//                            return;
-//                        }
-//                        default -> System.out.println("잘못된 입력입니다. 다시 시도해주세요.");
+                    //  JAVA 14
+//                    case 1 -> registerBudget();
+//                    case 2 -> displayAllBudgets();
+//                    case 3 -> registerExpenditure();
+//                    case 4 -> displayExpenditureSummary();
+//                    case 5 -> {
+//                        System.out.println("시스템 종료.");
+//                        return;
 //                    }
+//                    default -> System.out.println("잘못된 입력입니다. 다시 시도해주세요.");
                 }
+            } catch (InputMismatchException e) {
+                System.out.println("입력 오류: 숫자를 입력해주세요.");
+                scanner.nextLine(); // 잘못된 입력 버퍼 제거
             } catch (Exception e) {
                 System.out.println("오류: " + e.getMessage());
-                scanner.nextLine();
             }
         }
     }
 
     private static void registerBudget() {
-        System.out.print("부서명: ");
-        String department = scanner.next();
-        System.out.print("할당 예산: ");
-        double amount = scanner.nextDouble();
+        try {
+            System.out.print("부서명: ");
+            String department = scanner.next();
+            System.out.print("할당 예산: ");
+            double amount = scanner.nextDouble();
 
-        service.registerBudget(department, amount);
+            service.registerBudget(department, amount);
+        } catch (InputMismatchException e) {
+            System.out.println("입력 오류: 숫자를 입력해주세요.");
+            scanner.nextLine();
+        } catch (Exception e) {
+            System.out.println("오류: " + e.getMessage());
+        }
     }
 
     private static void displayAllBudgets() {
         List<BudgetDTO> budgetList = service.getAllBudgets();
-        for (BudgetDTO dto : budgetList) {
-            System.out.println(dto);
+        if (budgetList.isEmpty()) {
+            System.out.println("등록된 예산이 없습니다.");
+            return;
         }
+        budgetList.forEach(System.out::println);
     }
 
     private static void registerExpenditure() {
-        System.out.print("부서명: ");
-        String department = scanner.next();
-        System.out.print("지출 내용: ");
-        String description = scanner.next();
-        System.out.print("지출 금액: ");
-        double amount = scanner.nextDouble();
+        try {
+            System.out.print("부서명: ");
+            String department = scanner.next();
+            System.out.print("지출 내용: ");
+            String description = scanner.next();
+            System.out.print("지출 금액: ");
+            double amount = scanner.nextDouble();
 
-        service.recordExpenditure(department, description, amount);
+            service.recordExpenditure(department, description, amount);
+        } catch (InputMismatchException e) {
+            System.out.println("입력 오류: 숫자를 입력해주세요.");
+            scanner.nextLine();
+        } catch (Exception e) {
+            System.out.println("오류: " + e.getMessage());
+        }
     }
 
     private static void displayExpenditureSummary() {
@@ -82,10 +100,12 @@ public class ErpMain {
         String department = scanner.next();
 
         try {
-            List<ExpenditureDTO> expenditures = service.getExpenditures(department);
-            for (ExpenditureDTO dto : expenditures) {
-                System.out.println(dto);
+            Queue<ExpenditureDTO> expenditures = service.getExpenditures(department);
+            if (expenditures.isEmpty()) {
+                System.out.println("등록된 지출 내역이 없습니다.");
+                return;
             }
+            expenditures.forEach(System.out::println);
         } catch (Exception e) {
             System.out.println("오류: " + e.getMessage());
         }

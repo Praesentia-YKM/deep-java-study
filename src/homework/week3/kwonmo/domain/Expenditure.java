@@ -4,7 +4,7 @@ import homework.week3.kwonmo.repository.ExpenditureDTO;
 
 public class Expenditure {
     private final String description; // 지출 내용
-    private final double amount;      // 지출 금액 (불변)
+    private final double amount;      // 지출 금액
 
     public Expenditure(String description, double amount) {
         if (description == null || description.trim().isEmpty()) {
@@ -19,9 +19,13 @@ public class Expenditure {
         this.amount = amount;
     }
 
-    // DTO로 변환
+    // DTO 변환 메서드
     public ExpenditureDTO toDTO() {
         return new ExpenditureDTO(description, amount);
+    }
+
+    public double getAmount() {
+        return amount;
     }
 
     @Override
@@ -29,4 +33,3 @@ public class Expenditure {
         return String.format("지출 내용: %s, 금액: %.2f", description, amount);
     }
 }
-
