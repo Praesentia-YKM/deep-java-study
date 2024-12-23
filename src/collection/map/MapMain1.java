@@ -1,11 +1,8 @@
 package collection.map;
 
-import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
-// import java.util.Map.Entry;
 import java.util.Set;
 
 public class MapMain1 {
@@ -13,7 +10,6 @@ public class MapMain1 {
     public static void main(String[] args) {
         Map<String, Integer> studentMap = new HashMap<>();
 
-        java.util.List<String> dd;
         // 학생 성적 데이터 추가
         studentMap.put("studentA", 90);
         studentMap.put("studentB", 80);
@@ -26,7 +22,7 @@ public class MapMain1 {
         System.out.println("result = " + result);
 
         System.out.println("KeySet 활용");
-        Set<String> keySet = studentMap.keySet(); // 중복x, 순서보장x
+        Set<String> keySet = studentMap.keySet();
         for (String key : keySet) {
             Integer value = studentMap.get(key);
             System.out.println("key=" + key + ", value=" + value);
