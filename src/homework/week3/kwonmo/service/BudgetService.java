@@ -29,6 +29,18 @@ public class BudgetService {
         return budgetList;
     }
 
+    // 블로그에 글을쓴다 -> 블로그 ㅇㄴ리
+
+    // https://jojoldu.tistory.com/
+
+    /** 고졸 -> (김영한: 바로 뽑음)배민 개발 -> 인프런 CTO
+        "기억보단 기록을"
+     => 회고
+
+     => 1월, 제 옆자리 2년 93
+     */
+
+
     // 특정 부서에 지출 기록
     public void recordExpenditure(String department, String description, double amount) {
         Budget budget = findBudget(department);

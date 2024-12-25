@@ -25,23 +25,17 @@ public class ErpMain {
             try {
                 int choice = scanner.nextInt();
                 switch (choice) {
-                    case 1: registerBudget(); break;
-                    case 2: displayAllBudgets(); break;
-                    case 3: registerExpenditure(); break;
-                    case 4: displayExpenditureSummary(); break;
-                    case 5: System.out.println("시스템 종료."); return;
-                    default: System.out.println("잘못된 입력입니다. 다시 시도해주세요.");
 
                     //  JAVA 14
-//                    case 1 -> registerBudget();
-//                    case 2 -> displayAllBudgets();
-//                    case 3 -> registerExpenditure();
-//                    case 4 -> displayExpenditureSummary();
-//                    case 5 -> {
-//                        System.out.println("시스템 종료.");
-//                        return;
-//                    }
-//                    default -> System.out.println("잘못된 입력입니다. 다시 시도해주세요.");
+                    case 1 -> registerBudget();
+                    case 2 -> displayAllBudgets();
+                    case 3 -> registerExpenditure();
+                    case 4 -> displayExpenditureSummary();
+                    case 5 -> {
+                        System.out.println("시스템 종료.");
+                        return;
+                    }
+                    default -> System.out.println("잘못된 입력입니다. 다시 시도해주세요.");
                 }
             } catch (InputMismatchException e) {
                 System.out.println("입력 오류: 숫자를 입력해주세요.");

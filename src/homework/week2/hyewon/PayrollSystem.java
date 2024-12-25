@@ -27,6 +27,8 @@ public class PayrollSystem {
         Payroll payroll = new Payroll();
         Payment payment = new Payment();
 
+        payment.getProcessedEmployees();
+
         for (Employee employee : employees) {
             try {
                 // 급여 계산
