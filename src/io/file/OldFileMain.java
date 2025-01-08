@@ -5,7 +5,8 @@ import java.io.IOException;
 import java.util.Date;
 
 public class OldFileMain {
-
+// File은 옛날 방식임
+// Files와 Path가 자바 1.7에서 등장함
     public static void main(String[] args) throws IOException {
         File file = new File("temp/example.txt");
         File directory = new File("temp/exampleDir");

@@ -17,6 +17,9 @@ public class NewFilesPath {
         // 정규 경로
         System.out.println("Canonical path = " + path.toRealPath());
 
+        // Files에 있는 list로 Path스트림을 생성할 수 있음
+        // 컬렉션 스트림은 자동으로 close되는데 파일에서 만드는 stream은 close가 안됨
+        // 원래 stream이라는게 닫아줘야하는거임(네트워크던 파일이던 ㅇㅇ. 근데 컬렉션 스트림은 편의상 자동으로 닫아주는것)
         Stream<Path> pathStream = Files.list(path);
         List<Path> list = pathStream.toList();
         pathStream.close();
