@@ -14,7 +14,7 @@ public class ServerV1 {
 
     public static void main(String[] args) throws IOException {
         log("서버 시작");
-        ServerSocket serverSocket = new ServerSocket(PORT);
+        ServerSocket serverSocket = new ServerSocket(PORT); // 12345 포트로 서버가 떠있어서 12345 포트로 연결되는 클라이언트를 기다린다.
         log("서버 소켓 시작 - 리스닝 포트: " + PORT);
 
         Socket socket = serverSocket.accept();

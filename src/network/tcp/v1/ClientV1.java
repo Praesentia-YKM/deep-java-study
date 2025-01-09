@@ -14,8 +14,8 @@ public class ClientV1 {
 
     public static void main(String[] args) throws IOException {
         log("클라이언트 시작");
-        Socket socket = new Socket("localhost", PORT);
-        DataInputStream input = new DataInputStream(socket.getInputStream());
+        Socket socket = new Socket("localhost", PORT); // tcp/ip를 통해서 내 컴퓨터 내에서 포트연결
+        DataInputStream input = new DataInputStream(socket.getInputStream()); // 소켓의 스트림을 보조스트림으로 감쌈
         DataOutputStream output = new DataOutputStream(socket.getOutputStream());
         log("소캣 연결: " + socket);
 
