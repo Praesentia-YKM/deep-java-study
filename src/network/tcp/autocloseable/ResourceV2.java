@@ -1,5 +1,6 @@
 package network.tcp.autocloseable;
 
+// try - resource 문은 AutoCloseable해야한다.
 public class ResourceV2 implements AutoCloseable {
 
     private String name;
