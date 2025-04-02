@@ -1,4 +1,4 @@
-package Stream;
+package youtube_lamda.lamda.Stream;
 
 import java.util.*;
 import java.util.stream.*;
@@ -31,11 +31,11 @@ public class fianlOperation {
         /**
          * reduce()예제
          */
-        //Stream<String>을 Stream<Integer>로 변환
+        //youtube_lamda.lamda.Stream<String>을 youtube_lamda.lamda.Stream<Integer>로 변환
         Stream<Integer> intStream0= Stream.of(strArr).map(String::length);
 
-        // Stream<String> -> IntStream으로 변환 : IntStream 은 기본형int를 다루는 스트림이라
-        // 성능이 Stream<Integer>보다 더 빠름
+        // youtube_lamda.lamda.Stream<String> -> IntStream으로 변환 : IntStream 은 기본형int를 다루는 스트림이라
+        // 성능이 youtube_lamda.lamda.Stream<Integer>보다 더 빠름
         IntStream intStream1 = Stream.of(strArr).mapToInt(String::length);
         IntStream intStream2 = Stream.of(strArr).mapToInt(String::length);
         IntStream intStream3 = Stream.of(strArr).mapToInt(String::length);

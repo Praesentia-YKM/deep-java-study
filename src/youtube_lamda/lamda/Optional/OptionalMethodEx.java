@@ -1,4 +1,4 @@
-package Optional;
+package youtube_lamda.lamda.Optional;
 
 import java.util.Arrays;
 import java.util.List;
@@ -7,16 +7,16 @@ import java.util.stream.Collectors;
 
 public class OptionalMethodEx {
     public static void main(String[] args) {
-        // 1. Optional.empty() - 비어있는 Optional 객체 생성
-        // 팩토리 메서드 사용: Optional.empty()는 비어 있는(null) Optional 객체를 반환합니다.
+        // 1. youtube_lamda.lamda.Optional.empty() - 비어있는 youtube_lamda.lamda.Optional 객체 생성
+        // 팩토리 메서드 사용: youtube_lamda.lamda.Optional.empty()는 비어 있는(null) youtube_lamda.lamda.Optional 객체를 반환합니다.
         // 이 객체는 값이 없음을 명시적으로 표현할 때 사용됩니다.
         Optional<String> emptyOptional = Optional.empty();
         System.out.println("emptyOptional.isPresent(): " + emptyOptional.isPresent());  // 출력: false
         System.out.println("emptyOptional.isEmpty(): " + emptyOptional.isEmpty());  // 출력: true
 
 
-        // 2. Optional.of() - 절대 null이 아닌 값을 가진 Optional 객체 생성
-        // 팩토리 메서드 사용: Optional.of()는 절대 null이 아닌 값을 감싸는 Optional 객체를 생성합니다.
+        // 2. youtube_lamda.lamda.Optional.of() - 절대 null이 아닌 값을 가진 youtube_lamda.lamda.Optional 객체 생성
+        // 팩토리 메서드 사용: youtube_lamda.lamda.Optional.of()는 절대 null이 아닌 값을 감싸는 youtube_lamda.lamda.Optional 객체를 생성합니다.
         // 만약 null이 전달되면 NullPointerException을 던집니다.
         // [널이 아닌대도 굳이 옵셔널로 감싸면 널이 아니라는 의도를 보여굼과 더불어 함수형 인터페이스 사용가능]
         // map(), flatMap(), filter()등의 메서드를 사용하여 더 선언적이고 간결한 방식으로 데이터를 처리할 수 있습니다.
@@ -27,9 +27,9 @@ public class OptionalMethodEx {
         length.ifPresent(System.out::println);  // 출력: 13
 
 
-        // 3. Optional.ofNullable() - null일 수도 있고 아닐 수도 있는 값을 가진 Optional 객체 생성
-        // 팩토리 메서드 사용: Optional.ofNullable()는 null일 수도 있고 아닐 수도 있는 값을 감싸는 Optional 객체를 생성합니다.
-        // 전달된 값이 null이면 비어 있는 Optional 객체를 반환하고, 그렇지 않으면 값을 감싸는 Optional 객체를 반환합니다.
+        // 3. youtube_lamda.lamda.Optional.ofNullable() - null일 수도 있고 아닐 수도 있는 값을 가진 youtube_lamda.lamda.Optional 객체 생성
+        // 팩토리 메서드 사용: youtube_lamda.lamda.Optional.ofNullable()는 null일 수도 있고 아닐 수도 있는 값을 감싸는 youtube_lamda.lamda.Optional 객체를 생성합니다.
+        // 전달된 값이 null이면 비어 있는 youtube_lamda.lamda.Optional 객체를 반환하고, 그렇지 않으면 값을 감싸는 youtube_lamda.lamda.Optional 객체를 반환합니다.
         String nullableString = null;
         Optional<String> nullableOptional = Optional.ofNullable(nullableString);
         System.out.println("nullableOptional.isPresent(): " + nullableOptional.isPresent());  // 출력: false

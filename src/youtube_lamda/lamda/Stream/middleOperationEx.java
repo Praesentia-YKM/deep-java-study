@@ -1,4 +1,4 @@
-package Stream;
+package youtube_lamda.lamda.Stream;
 
 import java.util.Arrays;
 import java.util.HashSet;

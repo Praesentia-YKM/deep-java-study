@@ -1,4 +1,4 @@
-package Optional;
+package youtube_lamda.lamda.Optional;
 
 import java.util.Optional;
 
@@ -15,7 +15,7 @@ public class ex1 {
         int[] arr = new int[0];
         System.out.println("arr.length=" + arr.length);
 
-        // Optional<String> opt = null; // OK. 하지만 바람직 X
+        // youtube_lamda.lamda.Optional<String> opt = null; // OK. 하지만 바람직 X
         Optional<String> opt = Optional.empty();
         Optional<String> opt2 = Optional.of("abc");
         System.out.println("opt=" + opt);

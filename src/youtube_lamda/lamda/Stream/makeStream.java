@@ -1,4 +1,4 @@
-package Stream;
+package youtube_lamda.lamda.Stream;
 
 import java.util.Arrays;
 import java.util.Iterator;
@@ -36,10 +36,10 @@ public class makeStream {
 
 
         /** Arrays.stream을 통한 배열->Stream변환
-         * Stream.of 를 통한 배열 -> Stream변환
+         * youtube_lamda.lamda.Stream.of 를 통한 배열 -> Stream변환
          */
         String[] strArr = new String[] {"a","b","c","d"};
-//        Stream<String> strStream = Stream.of(strArr);
+//        youtube_lamda.lamda.Stream<String> strStream = youtube_lamda.lamda.Stream.of(strArr);
         Stream<String> strStream = Stream.of(new String[] {"a","b","c","d"});
         Stream<String> strStream1 = Arrays.stream(strArr);
         strStream.forEach(System.out::print);

@@ -1,4 +1,4 @@
-package Stream;
+package youtube_lamda.lamda.Stream;
 
 import java.util.Arrays;
 import java.util.List;
@@ -10,7 +10,7 @@ import java.util.stream.Stream;
  */
 public class ex5 {
     public static void main(String[] args) {
-        List<String> sentences = Arrays.asList("Hello world", "Java Stream", "Functional programming", "Hello Java");
+        List<String> sentences = Arrays.asList("Hello world", "Java youtube_lamda.lamda.Stream", "Functional programming", "Hello Java");
 
         // 이 스트림을 완성하여 조건에 맞는 결과를 출력하세요
         Stream<String> words = sentences.stream();

@@ -1,4 +1,4 @@
-package Stream;
+package youtube_lamda.lamda.Stream;
 
 import java.util.Arrays;
 import java.util.List;
@@ -8,11 +8,11 @@ import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
 /**
- * Stream : 다양한 데이터 소스(컬렉션, 배열 ...)를 표준화된
+ * youtube_lamda.lamda.Stream : 다양한 데이터 소스(컬렉션, 배열 ...)를 표준화된
  * (list, set, map은 서로 자료를 다루는 방식이 달라서 표준화되지 못한 자료구조다)
  * 방법으로 다루기 위한 것
  *
- * 컬렉션(List, Set, Map) 을 -> Stream 으로 만들면 -> 중간작업(n번 실행하는 작업) -> 최종연산(1번 실행)
+ * 컬렉션(List, Set, Map) 을 -> youtube_lamda.lamda.Stream 으로 만들면 -> 중간작업(n번 실행하는 작업) -> 최종연산(1번 실행)
  * 과 같은 동일한 파이프라인을 거쳐서 작업이 완성된다.
  *
  * Stream은 일회용이다. 최종연산이 실행을 마치면 다시 최종연산을 실행할 수 없다.
@@ -32,11 +32,11 @@ public class StreamEx {
         Stream<String> strStream = Stream.of(array);
 
 
-        // Stream.iterate() 메서드를 사용하면 초기 값과 생성 규칙에 따라 스트림을 생성
+        // youtube_lamda.lamda.Stream.iterate() 메서드를 사용하면 초기 값과 생성 규칙에 따라 스트림을 생성
         Stream<Integer> evenStream = Stream.iterate(0, n -> n + 2); // 0, 2, 4, 6, 8, ...
 
 
-        // Stream.generate() 메서드를 사용하면 무작위 값으로 스트림을 생성
+        // youtube_lamda.lamda.Stream.generate() 메서드를 사용하면 무작위 값으로 스트림을 생성
         Stream<Double> randomStream = Stream.generate(Math::random);
 
 
@@ -48,7 +48,7 @@ public class StreamEx {
                 .forEach(i -> System.out.print(i + ","));  // 최종 연산: 각 요소를 출력
 
 
-        // Stream Builder를 통한 동적스트림 생성
+        // youtube_lamda.lamda.Stream Builder를 통한 동적스트림 생성
         Stream.Builder<String> builder = Stream.builder();
 
         builder.add("a");

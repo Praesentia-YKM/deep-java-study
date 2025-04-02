@@ -1,4 +1,4 @@
-package Stream;
+package youtube_lamda.lamda.Stream;
 
 import java.io.File;
 import java.util.Arrays;
@@ -19,10 +19,10 @@ public class middleOperationEx2 {
         );
 
         // 파일 스트림에서 파일 이름을 추출하고, 확장자만 대문자로 변환하여 중복 없이 출력
-        fileStream.map(File::getName) // Stream<File> -> Stream<String>
+        fileStream.map(File::getName) // youtube_lamda.lamda.Stream<File> -> youtube_lamda.lamda.Stream<String>
                 .filter(s -> s.indexOf('.') != -1) // 확장자가 있는 파일만 필터링
-                .map(s -> s.substring(s.indexOf('.') + 1)) // Stream<String> -> Stream<String> (확장자 추출)
-                .map(String::toUpperCase) // Stream<String> -> Stream<String> (대문자로 변환)
+                .map(s -> s.substring(s.indexOf('.') + 1)) // youtube_lamda.lamda.Stream<String> -> youtube_lamda.lamda.Stream<String> (확장자 추출)
+                .map(String::toUpperCase) // youtube_lamda.lamda.Stream<String> -> youtube_lamda.lamda.Stream<String> (대문자로 변환)
                 .distinct() // 중복 제거
                 .forEach(System.out::println); // 결과 출력
 

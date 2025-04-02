@@ -1,9 +1,9 @@
-package Stream;
+package youtube_lamda.lamda.Stream;
 
 import java.util.Optional;
 
 /**
- * Optional<String>을 사용하여, 만약 주어진 문자열이 null이거나 비어 있지 않다면 그 문자열을 대문자로 변환하여 출력하고,
+ * youtube_lamda.lamda.Optional<String>을 사용하여, 만약 주어진 문자열이 null이거나 비어 있지 않다면 그 문자열을 대문자로 변환하여 출력하고,
  * 그렇지 않다면 "EMPTY"라는 메시지를 출력하도록 하세요.
  */
 public class ex6 {

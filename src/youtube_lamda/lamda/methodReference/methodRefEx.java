@@ -1,4 +1,4 @@
-package methodReference;
+package youtube_lamda.lamda.methodReference;
 
 import java.util.function.Function;
 import java.util.function.Supplier;

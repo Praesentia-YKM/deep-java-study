@@ -1,4 +1,4 @@
-package lamda;
+package youtube_lamda.lamda;
 
 import java.util.ArrayList;
 import java.util.HashMap;

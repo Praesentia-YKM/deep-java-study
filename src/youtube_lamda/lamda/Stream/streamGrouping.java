@@ -1,4 +1,4 @@
-package Stream;
+package youtube_lamda.lamda.Stream;
 
 
 import java.util.*;
@@ -35,7 +35,7 @@ public class streamGrouping {
         };
         // 성별로 분할 출력
         System.out.printf("1. 단순분할 (성별로 분할)%n");
-        // Stream.of(stuArr) 대신 Stream<Student2> stream = Arrays.stream(stuArr);도 가능, 둘다 자바8
+        // youtube_lamda.lamda.Stream.of(stuArr) 대신 youtube_lamda.lamda.Stream<Student2> stream = Arrays.stream(stuArr);도 가능, 둘다 자바8
         Map<Boolean, List<Student2>> stuBySex = Stream.of(stuArr)
                 .collect(partitioningBy(Student2::isMale)); // 바로 최종연산 : partitioningBy는 무조건 리턴이  Map<Boolean, List<T>
 
@@ -66,8 +66,8 @@ public class streamGrouping {
                 .collect(partitioningBy(Student2::isMale,
                         collectingAndThen(maxBy(comparingInt(Student2::getScore)), Optional::get)));
         // 첫 번째 인자: maxBy(comparingInt(Student2::getScore))는 성별별로 최고 점수를 가진 학생을 찾는 Collector입니다.
-        // 두 번째 인자: Optional::get은 Optional<Student2>에서 실제 Student2 객체를 추출하는 함수입니다. Optional이 비어있지 않다고 가정하고 사용하는 방식입니다. 만약 비어있다면 예외가 발생합니다.
-        // Optional<Student2>로 감싸지는 이유는 maxBy() 메서드의 반환 타입이 Optional<T>이기 때문
+        // 두 번째 인자: youtube_lamda.lamda.Optional::get은 youtube_lamda.lamda.Optional<Student2>에서 실제 Student2 객체를 추출하는 함수입니다. Optional이 비어있지 않다고 가정하고 사용하는 방식입니다. 만약 비어있다면 예외가 발생합니다.
+        // youtube_lamda.lamda.Optional<Student2>로 감싸지는 이유는 maxBy() 메서드의 반환 타입이 youtube_lamda.lamda.Optional<T>이기 때문
 
         /**
          * groupingBy
