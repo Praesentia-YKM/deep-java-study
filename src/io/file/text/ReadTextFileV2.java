@@ -1,10 +1,12 @@
 package io.file.text;
 
+import javax.xml.transform.Source;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -30,25 +32,66 @@ public class ReadTextFileV2 {
             System.out.println((i + 1) + ": " + lines.get(i));
         }
 
+        // 지연평가
+        // 트래이드 오프
+        // I/O
         Stream<String> stream = Files.lines(path, UTF_8);
         stream.forEach(System.out::println);
 
-        List<Integer> numbers = List.of(1, 2, 3, 4, 5);
+        System.out.println("=====Stream 시작 =====");
+        Stream<Integer> integerStream = Stream.of(1, 2, 3, 4, 5)
+                .filter(i-> {
+                    System.out.println("필터링!" + i);
+                    return i % 2 == 0;
+                })
+                .map(i-> {
+                    System.out.println("매핑!!" + i);
+                    return i * 10;
+                });
+        System.out.println(integerStream.findFirst().orElseGet(
+            () -> {
+                System.out.println("값 없다");
+                return -1;
+            }
+        ));
 
-         List<Integer> result = numbers.stream()
-                                       .filter(n -> {
-                                           System.out.println("Filtering " + n);
-                                           return n % 2 == 0;  // 짝수만 필터링
-                                       })
-                                       .map(n -> {
-                                           System.out.println("Mapping " + n);
-                                           return n * 2;  // 값을 두 배로
-                                       })
-                                       .collect(Collectors.toList());  // 최종 연산
 
-         System.out.println("결과: " + result);
+    /**
+     소켓통신 소켓1 <-> 소켓2 tcp/ip
 
-         // 스트림 : 데이터 처리 연산을 지원하도록 추출된 연속의 요소
+        송수신
+        쌍방향
+        세콤: db => 세콤 db 리소스 정보 ip 포트 => 올샵한테 알려줌 => db insert => select
+        전자결재, 은행
+
+        방화벽                 방화벽 우리꺼 열어주셈. ip, port 열어줘 : 인바운드
+        인바운드 -<             아웃바운드.
+        클라이언트              서버
+        클라이언트 ip           서버 ip
+        클라이언트 port         서버 port
+
+        서버 ip              클라이언트 ip
+        서버 port            클라이언트 port
+
+        token -> jwt -> oauth2.0
+        로그인           로그아웃
+
+        data -> 프로시저에서 가지고 나와서 localstorage  clear
+
+        <form post= 사용자명|나이|주소|직급| > </form> submit
+        lnk_des
+        ext_app_lnk
+
+        url : http://allSharp.com:80/컨트롤러url.do
+        https:// ip주소:443/receiveData.do
+
+    */
+
+
+
+
+
+        // 스트림 : 데이터 처리 연산을 지원하도록 추출된 연속의 요소
         // 지연평가(깔대기): filter 조건에 맞지 않는 데이터를 미리 걸러낸 뒤, 그 데이터를 변환하지 않음
 
          // 만약 즉시 평가면
