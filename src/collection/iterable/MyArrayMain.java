@@ -1,6 +1,5 @@
 package collection.iterable;
 
-import org.json.JSONObject;
 
 import java.util.HashMap;
 import java.util.Iterator;
@@ -25,25 +24,25 @@ public class MyArrayMain {
         }
 
         String jsonStr = "{\"name\": \"John\", \"age\": \"30\"}";
-        JSONObject jObject = new JSONObject(jsonStr);
-        System.out.println(jObject.toString());
+//        JSONObject jObject = new JSONObject(jsonStr);
+//        System.out.println(jObject.toString());
 
-        Map<String, String> resultMap = convertJsonToMap(jsonStr);
+//        Map<String, String> resultMap = convertJsonToMap(jsonStr);
 
         // 결과 출력
-        System.out.println(resultMap);
+//        System.out.println(resultMap);
 
     }
-
-    public static Map<String, String> convertJsonToMap(String jsonStr) {
-        JSONObject jsonObject = new JSONObject(jsonStr);
-        Map<String, String> map = new HashMap<>();
-
-        for (String key : jsonObject.keySet()) {
-            map.put(key, jsonObject.get(key).toString());
-        }
-
-        return map;
-    }
+//
+//    public static Map<String, String> convertJsonToMap(String jsonStr) {
+//        JSONObject jsonObject = new JSONObject(jsonStr);
+//        Map<String, String> map = new HashMap<>();
+//
+//        for (String key : jsonObject.keySet()) {
+//            map.put(key, jsonObject.get(key).toString());
+//        }
+//
+//        return map;
+//    }
 
 }
