@@ -22,7 +22,7 @@ public class MyArrayMain {
         for (int value : myArray) {
             System.out.println("value = " + value);
         }
-        // git push test
+        // git push test dddd
         String jsonStr = "{\"name\": \"John\", \"age\": \"30\"}";
 //        JSONObject jObject = new JSONObject(jsonStr);
 //        System.out.println(jObject.toString());
